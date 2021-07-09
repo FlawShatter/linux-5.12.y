@@ -110,8 +110,8 @@
 			opp-microvolt = <730000>;
 		};
 
-		opp-667000000 {
-			opp-hz = /bits/ 64 <666666666>;
+		opp-750000000 {
+			opp-hz = /bits/ 64 <750000000>;
 			opp-microvolt = <750000>;
 		};
 
@@ -398,6 +398,17 @@
 				 <&clkc_audio AUD_CLKID_TDMOUT_C_LRCLK>;
 			clock-names = "pclk", "sclk", "sclk_sel",
 				      "lrclk", "lrclk_sel";
+			status = "disabled";
+		};
+
+
+		toacodec: audio-controller@740 {
+			compatible = "amlogic,sm1-toacodec",
+				     "amlogic,g12a-tohdmitx";
+			reg = <0x0 0x740 0x0 0x4>;
+			#sound-dai-cells = <1>;
+			sound-name-prefix = "TOACODEC";
+			resets = <&clkc_audio AUD_RESET_TOACODEC>;
 			status = "disabled";
 		};
 
